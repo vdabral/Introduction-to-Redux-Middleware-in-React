@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Redux Middleware in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React application that demonstrates how to integrate Redux middleware into a React app. The project includes two custom middleware functions that log the action type and payload whenever an action is dispatched.
 
-## Available Scripts
+## **Overview**
 
-In the project directory, you can run:
+- This project uses **Redux** for state management and **Redux Middleware** for extending Redux functionality.
+- Custom middleware logs the **action type** and **payload** when actions are dispatched.
+- The project also includes a simple **counter** that can be incremented and decremented using Redux actions.
 
-### `npm start`
+## **Features**
+- **Redux Store**: Manage state with Redux.
+- **Custom Middleware**:
+  - Action Type Logger: Logs the action type.
+  - Payload Logger: Logs the payload of the action.
+- **React-Redux**: Connect React components to the Redux store using `useDispatch` and `useSelector` hooks.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## **Technologies Used**
+- React
+- Redux
+- React-Redux
+- JavaScript
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Setup and Installation**
 
-### `npm test`
+### **1. Clone the Repository**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get started, clone the repository to your local machine:
 
-### `npm run build`
+git clone [<repository-url>](https://github.com/vdabral/Introduction-to-Redux-Middleware-in-React)
+cd redux-middleware-demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **2. Install Dependencies**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Make sure to install the required dependencies:
 
-### `npm run eject`
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **3. Run the Application**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Once the dependencies are installed, you can start the app with:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+npm start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This will start the React development server, and you can view the app at `http://localhost:3000`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **4. Usage**
 
-### Code Splitting
+The app will display a counter value and two buttons to **Increment** and **Decrement** the count. Each button click dispatches an action to the Redux store, and the custom middleware logs the action type and payload to the browser's console.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### **Example Logs in the Console**
 
-### Analyzing the Bundle Size
+When you click **Increment** or **Decrement**, the following will appear in the browser console:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+Dispatching Action Type: INCREMENT
+Action Payload: { value: 1 }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Dispatching Action Type: DECREMENT
+Action Payload: { value: -1 }
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## **How It Works**
 
-### Deployment
+1. **Redux Store Setup**: The Redux store is configured with two custom middleware: `actionTypeLogger` and `payloadLogger`.
+2. **React Integration**: The app uses the `useDispatch` and `useSelector` hooks from `react-redux` to interact with the Redux store.
+3. **Middleware**: 
+   - `actionTypeLogger` logs every action's type.
+   - `payloadLogger` logs the payload of the dispatched actions.
+4. **Dispatching Actions**: The buttons in the React component dispatch actions like `INCREMENT` and `DECREMENT`, which update the Redux state.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## **Observations & Learnings**
+- Middleware in Redux is a powerful tool for extending functionality, such as logging or handling asynchronous actions.
+- The `createRoot()` API in React 18 is used for rendering, replacing the old `render()` method.
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
